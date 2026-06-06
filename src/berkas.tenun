@@ -1,0 +1,61 @@
+// Modul Berkas — operasi berkas & direktori. Pembungkus builtin fs.
+
+fungsi berkas_baca(path: teks): teks {
+    kembali bacaFile(path);
+}
+
+fungsi berkas_tulis(path: teks, isi: teks): kosong {
+    tulisFile(path, isi);
+}
+
+// Tambah teks ke akhir berkas (baca + tulis ulang).
+fungsi berkas_tambah(path: teks, isi: teks): kosong {
+    biar lama: teks = "";
+    kalau adaFile(path) {
+        lama = bacaFile(path);
+    }
+    tulisFile(path, lama + isi);
+}
+
+fungsi berkas_ada(path: teks): bool {
+    kembali adaFile(path);
+}
+
+fungsi berkas_ukuran(path: teks): bulat {
+    kembali ukuranBerkas(path);
+}
+
+fungsi berkas_hapus(path: teks): kosong {
+    hapusBerkas(path);
+}
+
+// ---- Direktori ----
+
+fungsi dir_daftar(path: teks): []teks {
+    kembali daftarBerkas(path);
+}
+
+fungsi dir_buat(path: teks): kosong {
+    buatDir(path);
+}
+
+fungsi dir_hapus(path: teks): kosong {
+    hapusDir(path);
+}
+
+fungsi dir_ada(path: teks): bool {
+    kembali apakahDir(path);
+}
+
+// Baca semua berkas .ext di sebuah direktori jadi peta nama->isi.
+fungsi dir_baca_semua(path: teks): peta {
+    biar hasil: peta = peta{};
+    biar isi: []teks = daftarBerkas(path);
+    untuk nama dari isi {
+        biar penuh: teks = path + "/" + nama;
+        kalau apakahDir(penuh) == salah {
+            hasil[nama] = bacaFile(penuh);
+        }
+    }
+    kembali hasil;
+}

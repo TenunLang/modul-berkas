@@ -1,0 +1,10 @@
+{
+  "nama": "berkas",
+  "versi": "0.1.0",
+  "deskripsi": "Operasi berkas & direktori untuk Tenun.",
+  "lisensi": "MIT",
+  "penulis": "TenunLang",
+  "berkas": "src/berkas.tenun",
+  "kataKunci": ["berkas", "file", "direktori", "fs", "io"],
+  "butuh": {}
+}
