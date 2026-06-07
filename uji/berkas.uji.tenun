@@ -1,0 +1,8 @@
+impor "../src/berkas.tenun";
+
+berkas_tulis("uji_tmp.txt", "isi uji");
+tegas(berkas_ada("uji_tmp.txt"), "berkas dibuat");
+tegasSama(berkas_baca("uji_tmp.txt"), "isi uji", "baca balik isi");
+tegas(berkas_ukuran("uji_tmp.txt") == 7, "ukuran 7 byte");
+berkas_hapus("uji_tmp.txt");
+tegas(!berkas_ada("uji_tmp.txt"), "berkas terhapus");
